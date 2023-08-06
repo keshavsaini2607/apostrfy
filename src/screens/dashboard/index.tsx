@@ -1,17 +1,21 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import TopNavigation from './TopNavigation';
 import Stats from '../../components/stats';
+import CalendarWidget from '../../components/calendar/Calendar';
 
 const Dashboard = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.heading}>Dashboard</Text>
       <TopNavigation />
       <View style={styles.contentContainer}>
         <Stats />
       </View>
-    </View>
+      <View style={styles.contentContainer}>
+        <CalendarWidget />
+      </View>
+    </ScrollView>
   );
 };
 

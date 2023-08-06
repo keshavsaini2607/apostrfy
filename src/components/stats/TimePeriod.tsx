@@ -1,36 +1,12 @@
 import {View, Text, StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import React, {useState} from 'react';
-
-interface DataSet {
-  label: string;
-  value: number | string;
-}
-
-const dataSet: DataSet[] = [
-  {
-    label: '3m',
-    value: 3,
-  },
-  {
-    label: '6m',
-    value: 6,
-  },
-  {
-    label: '1 yr',
-    value: 12,
-  },
-  {
-    label: '2 yrs',
-    value: 24,
-  },
-  {
-    label: 'Max',
-    value: 'max',
-  },
-];
+import {TimePeriodData, timePeriodData} from '../../utils/constants';
+import {useAppDispatch} from '../../app/hooks';
+import {setRevenueMonth} from '../../app/slices/dashboardSlice';
 
 const TimePeriod = () => {
   const [activeTile, setActiveTile] = useState<string>('');
+  const dispatch = useAppDispatch();
 
   const activeStyle = (label: string) => {
     const isActive = activeTile === label;
@@ -56,17 +32,18 @@ const TimePeriod = () => {
     };
   };
 
-  const handleTilePress = (label: string) => {
-    setActiveTile(label);
+  const handleTilePress = (data: any) => {
+    setActiveTile(data.label);
+    dispatch(setRevenueMonth(data.value));
   };
 
   return (
     <View style={styles.container}>
-      {dataSet.map((data: DataSet) => (
+      {timePeriodData.map((data: TimePeriodData) => (
         <TouchableOpacity
           key={data.label}
           style={{...styles.dataTile, ...activeStyle(data.label)}}
-          onPress={() => handleTilePress(data.label)}>
+          onPress={() => handleTilePress(data)}>
           <Text style={{...styles.label, ...activeTextStyle(data.label)}}>
             {data.label}
           </Text>
