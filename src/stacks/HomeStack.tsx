@@ -53,6 +53,7 @@ export default function HomeStack() {
         },
         tabBarIcon: ({color, size}) => renderIcon(route, color, size),
         tabBarLabel: () => null,
+        tabBarActiveTintColor: '#F5B42B', // Set the active icon color to orange
       })}>
       <Tab.Screen name="Dashboard" component={Dashboard} />
       <Tab.Screen name="Stats" component={Stats} />

@@ -25,9 +25,11 @@ const BarGraph = () => {
           {activeTile === dataPoint.label && (
             <View style={styles.popover}>
               <Text style={styles.smallText}>
-                {revenueMonth === 'max'
-                  ? dataPoint.max
-                  : (dataPoint.netRevenue * revenueMonth).toFixed(2)}
+                {revenueMonth
+                  ? revenueMonth === 'max'
+                    ? dataPoint.max
+                    : (dataPoint.netRevenue * revenueMonth).toFixed(2)
+                  : dataPoint.netRevenue.toFixed(2)}
                 k
               </Text>
             </View>
