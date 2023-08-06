@@ -1,27 +1,28 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, ScrollView, Text, Pressable} from 'react-native';
+import {BarGrpahData, barGraphData} from '../../utils/constants';
+import {useAppDispatch} from '../../app/hooks';
+import {setActiveGraph} from '../../app/slices/dashboardSlice';
 
 const BarGraph = () => {
+  const dispatch = useAppDispatch();
   const [activeTile, setActiveTile] = useState<String>('');
-  const data = [
-    {label: 'Jan', value: 50},
-    {label: 'Feb', value: 70},
-    {label: 'Mar', value: 90},
-    {label: 'Apr', value: 67},
-    {label: 'May', value: 34},
-    {label: 'Jun', value: 80},
-  ];
+
+  const handleActiveTile = (dataPoint: BarGrpahData) => {
+    setActiveTile(dataPoint.label);
+    dispatch(setActiveGraph(dataPoint));
+  };
 
   return (
     <ScrollView
       horizontal
       contentContainerStyle={styles.container}
       showsHorizontalScrollIndicator={false}>
-      {data.map(dataPoint => (
+      {barGraphData.map(dataPoint => (
         <Pressable
           key={dataPoint.label}
           style={styles.flexCol}
-          onPress={() => setActiveTile(dataPoint.label)}>
+          onPress={() => handleActiveTile(dataPoint)}>
           <View
             style={{
               ...styles.tile,

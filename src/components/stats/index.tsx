@@ -2,8 +2,13 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import ArrowIcon from '../../assets/Arrow.png';
 import BarGraph from './BarGraph';
+import TimePeriod from './TimePeriod';
+import Donut from './Donut';
+import {useAppSelector} from '../../app/hooks';
 
 const Stats = () => {
+  const {activeGraph} = useAppSelector(state => state.dashboard);
+  console.log({activeGraph});
   return (
     <View style={styles.container}>
       <View style={styles.flexContainer}>
@@ -18,6 +23,23 @@ const Stats = () => {
         <Text style={{...styles.heading, alignSelf: 'center'}}>
           Net Revenue
         </Text>
+      </View>
+      <TimePeriod />
+      <View
+        style={{
+          ...styles.flexContainer,
+          ...styles.donutContainer,
+        }}>
+        <View style={styles.flexColCenter}>
+          <Donut progress={activeGraph.value / 100} />
+          <Text>Occupancy</Text>
+        </View>
+        <View style={styles.flexColCenter}>
+          <Text style={{...styles.linkText, ...styles.boldLabel}}>
+            {activeGraph?.avgRoomRate}
+          </Text>
+          <Text>Avg Room Rate</Text>
+        </View>
       </View>
     </View>
   );
@@ -53,5 +75,21 @@ const styles = StyleSheet.create({
     height: 'auto',
     minHeight: 20,
     resizeMode: 'contain',
+  },
+  flexColCenter: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+  },
+  donutContainer: {
+    width: '80%',
+    alignSelf: 'center',
+    marginTop: 20,
+    alignItems: 'flex-end',
+  },
+  boldLabel: {
+    fontWeight: '700',
+    fontSize: 28,
   },
 });
