@@ -34,4 +34,5 @@ npm run ios
 ```
 
 # Download the apk to run on your android device
-[Download File]([https://raw.githubusercontent.com/your_username/your_repository/main/example.txt](https://drive.google.com/file/d/1kP0GDDHDu7frel2QbctZWHQA5MnMfOaE/view?usp=sharing)https://drive.google.com/file/d/1kP0GDDHDu7frel2QbctZWHQA5MnMfOaE/uc?export=download)
+[Download File](https://drive.google.com/uc?export=download&id=1kP0GDDHDu7frel2QbctZWHQA5MnMfOaE)
+
