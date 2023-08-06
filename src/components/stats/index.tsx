@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   heading: {
-    fontSize: 15,
+    fontSize: 18,
     color: '#000',
     fontWeight: '700',
   },

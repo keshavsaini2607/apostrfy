@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react';
 import {Calendar} from 'react-native-calendars';
 import {useAppSelector} from '../../app/hooks';
 import {selectedCalendarDates} from '../../utils/constants';
-import ArrowIcon from '../../assets/Arrow.png';
 
 const CalendarWidget = () => {
   const [selected, setSelected] = useState('');
@@ -26,7 +25,10 @@ const CalendarWidget = () => {
         <Text style={styles.heading}>Bookings</Text>
         <View style={styles.flex}>
           <Text style={styles.linkText}>Details</Text>
-          <Image source={ArrowIcon} style={styles.icon} />
+          <Image
+            source={require('../../assets/Arrow.png')}
+            style={styles.icon}
+          />
         </View>
       </View>
       <Calendar
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   heading: {
-    fontSize: 15,
+    fontSize: 18,
     color: '#000',
     fontWeight: '700',
   },

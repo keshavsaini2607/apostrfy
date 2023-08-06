@@ -1,53 +1,60 @@
 export interface BarGrpahData {
   label: string;
   value: number;
-  netRevenue: string;
+  netRevenue: number;
   avgRoomRate: number;
   currentDate?: string;
+  max?: string;
 }
 
 export const barGraphData: BarGrpahData[] = [
   {
     label: 'Jan',
     value: 50,
-    netRevenue: '93.9k',
+    netRevenue: 93.3,
     avgRoomRate: 1000,
     currentDate: '2023-01-01',
+    max: '750',
   },
   {
     label: 'Feb',
     value: 70,
-    netRevenue: '89.0k',
+    netRevenue: 89,
     avgRoomRate: 2200,
     currentDate: '2023-02-01',
+    max: '340',
   },
   {
     label: 'Mar',
     value: 90,
-    netRevenue: '100.23k',
+    netRevenue: 100.23,
     avgRoomRate: 4000,
     currentDate: '2023-03-01',
+    max: '990',
   },
   {
     label: 'Apr',
     value: 67,
-    netRevenue: '90.4k',
+    netRevenue: 90.4,
     avgRoomRate: 3200,
     currentDate: '2023-04-01',
+    max: '410',
   },
   {
     label: 'May',
     value: 34,
-    netRevenue: '45.9k',
+    netRevenue: 45.9,
     avgRoomRate: 1200,
     currentDate: '2023-05-01',
+    max: '790',
   },
   {
     label: 'Jun',
     value: 80,
-    netRevenue: '65.98k',
+    netRevenue: 65.98,
     avgRoomRate: 3400,
     currentDate: '2023-06-01',
+    max: '670',
   },
 ];
 
@@ -160,5 +167,32 @@ export const selectedCalendarDates = [
       '2023-06-17': {marked: true, dotColor: 'green'},
       '2023-06-18': {marked: true, dotColor: 'green'},
     },
+  },
+];
+
+export interface DiscoverData {
+  id: string;
+  image: string;
+  title: string;
+  dates: string[];
+  description: string;
+}
+
+export const discoverData = [
+  {
+    id: '1',
+    image: 'img1',
+    title: 'Bohemia Rapper',
+    dates: ['12/09/2023', '14/09/2023'],
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sunt',
+  },
+  {
+    id: '2',
+    image: 'img2',
+    title: 'Anjunadeep',
+    dates: ['15/09/2023', '16/09/2023'],
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sunt',
   },
 ];
